@@ -5,6 +5,7 @@
 @import url('./__like/card__like.css');
 @import url('./__like/_active/card__like_active.css');
 @import url('./__delete-button/card__delete-button.css');
+@import url('./__delete-button/_hidden/card__delete-button_hidden.css');
 
 .card {
     background-color: #ffffff;

@@ -1,3 +1,4 @@
+
 .card__delete-button {
    background-image: url('../../../images/trash.svg');
    background-color: transparent;
@@ -18,3 +19,4 @@
 .card__delete-button:focus {
     outline-style: none;
 }
+

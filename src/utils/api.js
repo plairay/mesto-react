@@ -28,13 +28,13 @@ class Api {
             })
     }
 
-    updateUserInfo(formData) {
+    setUserInfo(formData) {
         return fetch(`${this._url}users/me`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
-                name: formData.title,
-                about: formData.profession,
+                name: formData.name,
+                about: formData.about,
             })
         })
             .then(res => {
@@ -75,9 +75,9 @@ class Api {
             })
     }
 
-    likeCard(id) {
-        return fetch(`${this._url}cards/likes/${id}`, {
-            method: 'PUT',
+    changeLikeCardStatus(cardId, isLiked) {
+        return fetch(`${this._url}cards/likes/${cardId}`, {
+            method: isLiked ? 'PUT' : 'DELETE',
             headers: this._headers
         })
             .then(res => {
@@ -87,6 +87,7 @@ class Api {
                 return Promise.reject(`Ошибка: ${res.status}. Лайк не поставлен`);
             })
     }
+
 
     unLikeCard(id) {
         return fetch(`${this._url}cards/likes/${id}`, {
@@ -101,7 +102,7 @@ class Api {
             })
     }
 
-    updateAvatar(formData) {
+    setUserAvatar(formData) {
         return fetch(`${this._url}users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
