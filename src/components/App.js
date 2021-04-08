@@ -16,7 +16,7 @@ function App() {
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
     const [selectedCard, setIsSelectedCard] = useState({name: '' , link: ''});
-    const [currentUser, setCurrentUser] = useState('');
+    const [currentUser, setCurrentUser] = useState({name: '', about: ''});;
     const [cards, setCards] = useState([]);
 
     function handleEditAvatarClick() {
@@ -63,25 +63,25 @@ function App() {
     function handleUpdateUser(formData) {
         api.setUserInfo(formData).then((formData) => {
           setCurrentUser(formData);
+          closeAllPopups();
         })
             .catch((err) => console.log(err));
-        closeAllPopups();
     }
 
     function handleUpdateAvatar(formData) {
         api.setUserAvatar(formData).then((formData) => {
           setCurrentUser(formData);
+          closeAllPopups();
         })
             .catch((err) => console.log(err));
-        closeAllPopups();
     }
 
     function handleAddPlaceSubmit(newCard) {
         api.createCard(newCard).then((newCard) => {
           setCards([newCard, ...cards]);
+          closeAllPopups();
         })
             .catch((err) => console.log(err));
-        closeAllPopups();
       }
 
     function handleCardDelete(removedCard) {

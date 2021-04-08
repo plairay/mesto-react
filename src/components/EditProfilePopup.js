@@ -45,7 +45,7 @@ function EditProfilePopup(props) {
                     type="text" 
                     className="popup__input popup__edit-name" 
                     name="title" 
-                    defaultValue={name} 
+                    value={name || ''} 
                     placeholder="Имя" 
                     minLength="2"
                     maxLength="40"
@@ -59,7 +59,7 @@ function EditProfilePopup(props) {
                     type="text" 
                     className="popup__input popup__edit-profession" 
                     name="profession" 
-                    defaultValue={description}  
+                    value={description || ''} 
                     placeholder="О себе" 
                     minLength="2"
                     maxLength="200"
